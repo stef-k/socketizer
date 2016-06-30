@@ -1,0 +1,276 @@
+//enable flexbox on body
+.the-site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.the-content{
+  flex: 1;
+}
+$color0: #001A27;
+$color1: #003049; //rgba(0, 48, 73, 100)
+$color2: #d62828; //rgba(214, 40, 40, 100)
+$color3: #f77f00; //rgba(247, 127, 0, 100)
+$color4: #fcbf49; //rgba(252, 191, 73, 100)
+$color5: #eae2b7; //rgba(234, 226, 183, 100)
+$color6: #144763;
+
+.socketizer-dark {
+  color: $color0
+}
+
+.bg-socketizer-dark {
+  background-color: $color0;
+}
+
+.socketizer-primary {
+  color: $color1;
+}
+
+.bg-socketizer-primary {
+  background-color: $color1;
+}
+
+.socketizer-light {
+  color: $color6;
+}
+
+.bg-socketizer-light {
+  background-color: $color6;
+}
+
+.socketizer-opposite {
+  color: $color2;
+}
+
+.bg-socketizer-opposite {
+  background-color: $color2;
+}
+
+.socketizer-opposite-light {
+  color: $color3;
+}
+
+.bg-socketizer-opposite-light {
+  background-color: $color3;
+}
+
+.socketizer-secondary {
+  color: $color5;
+}
+
+.bg-socketizer-secondary {
+  background-color: $color5;
+}
+
+.socketizer-w {
+  color: #fff;
+}
+
+.socketizer-navbar-secondary a {
+  color: $color5;
+}
+
+.socketizer-navbar-secondary a:hover {
+  color: $color3;
+}
+
+//fix menu
+#viewportsize {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  color: white;
+  padding: 5px;
+}
+
+.navbar-toggler {
+  color: white;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+@media (max-width: 543px) {
+  .navbar-toggleable-xs {
+    clear: both;
+  }
+  .navbar-toggleable-xs .navbar-nav {
+    float: none !important;
+  }
+  .navbar-toggleable-xs .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+  .navbar-toggleable-xs .navbar-nav .nav-item {
+    float: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-toggleable-sm {
+    clear: both;
+  }
+  .navbar-toggleable-sm .navbar-nav {
+    float: none !important;
+  }
+  .navbar-toggleable-sm .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+  .navbar-toggleable-sm .navbar-nav .nav-item {
+    float: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-toggleable-md {
+    clear: both;
+  }
+  .navbar-toggleable-md .navbar-nav {
+    float: none !important;
+  }
+  .navbar-toggleable-md .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+  .navbar-toggleable-md .navbar-nav .nav-item {
+    float: none;
+  }
+}
+
+// sticky navbar
+.sticky.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+// nav font size
+nav a {
+  font-size: 1.1rem;
+}
+
+.jumbotron {
+  border-radius: 0;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.socketizer-logo-circle {
+  clip-path: circle(50% at center);
+  padding: 20px;
+  width: 7rem;
+  height: auto;
+}
+
+.logo-text {
+  margin-left: -9px;
+  font-size: 70px;
+  line-height: 100px;
+  vertical-align: bottom;
+}
+
+.brand-logo {
+  display: inline;
+  vertical-align: middle;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-weight: bold;
+}
+
+.socketizer-brand-logo-circle {
+  clip-path: circle(50% at center);
+  padding: 5px;
+  width: 45px;
+  height: auto;
+}
+
+#bs-navbar-collapse-1 li a {
+  padding-top: 11px;
+  padding-bottom: auto;
+}
+
+#video {
+  margin-top: -25px;
+  height: 700px;
+  background: url("../img/demo.gif") no-repeat center center;
+}
+
+#how-it-works {
+  min-height: 500px;
+  background: $color1;
+  color: #fff;
+}
+
+#pricing {
+  min-height: 600px;
+}
+
+footer {
+  color: $color1;
+}
+
+footer a {
+  color: $color2;
+}
+
+footer a:hover {
+  color: $color3;
+}
+
+.socketizer-b-r {
+  transition: background-color 1.0s ease;
+  background-color: $color0;
+}
+
+.socketizer-r-b {
+  transition: background-color 1.0s ease;
+  background-color: $color1;
+}
+
+.socketizer-btn-primary {
+  background-color: $color1;
+  color: $color5;
+}
+
+.socketizer-btn-primary:hover {
+  background-color: $color0;
+  color: $color5;
+}
+
+.socketizer-btn-opposite {
+  background-color: $color2;
+  color: $color5;
+}
+
+.socketizer-btn-opposite:hover {
+  background-color: $color2;
+  color: $color5;
+}
+
+.socketizer-btn-outline {
+  border: 1px solid $color5;
+  background-color: transparent;
+  color: #fff;
+}
+
+.socketizer-btn-outline:hover {
+  border: 1px solid $color5;
+  background-color: $color5;
+  color: $color1;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}

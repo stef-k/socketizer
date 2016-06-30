@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block prenav %}
+    <div class="jumbotron jumbotron-fluid m-y-0 bg-socketizer-primary socketizer-secondary"
+         id="prenav">
+        <div class="container-fluid centered">
+            <div class="m-b-2 hidden-sm-down"><img
+                    src="{% static 'img/socketizer.svg' %}"
+                    class="socketizer-logo-circle bg-socketizer-secondary">
+                <span class="logo-text hidden-sm-down">ocketizer</span>
+                <span class="label bg-socketizer-opposite"><strong>BETA</strong></span>
+            </div>
+            <div class="m-b-2 hidden-sm-up"><img
+                    src="{% static 'img/socketizer.svg' %}"
+                    class="socketizer-logo-circle bg-socketizer-secondary">
+                <div class="logo-text">Socketizer</div>
+                <span class="label bg-socketizer-opposite"><strong>BETA</strong></span>
+            </div>
+            <h1>Still waiting your visitors to refresh their page?</h1>
+            <h2>Quick and easy way to give life to your WordPress site</h2>
+            <h3>(more platforms comming soon)</h3>
+        </div>
+        <div class="container-fluid  m-t-1">
+            <p class="lead centered">
+                Engage your visitors with realtime posts and instant
+                discussions<br>
+                No more <kbd
+                    class="bg-socketizer-secondary socketizer-primary">F5</kbd>
+                and refresh button spamming<br>
+                Based on websockets technology our aim is
+                to enable seamless realtime updates to your connected
+                clients<br>
+                No coding skills
+                <span data-toggle="tooltip" data-placement="top"
+                      title="You may need to add a CSS selector if your theme is not WordPress compatible"> required*</span>,
+                install our plugin and you are
+                ready to go!
+            </p>
+            <h2 class="socketizer-w centered"><strong>BETA Version</strong>
+            </h2>
+            <p class="lead centered">
+                Our service is currently in BETA version, that means
+                until our launching, we are giving free keys.
+                <br>
+                <button type="button" class="btn socketizer-btn-outline"><span
+                        class="lead">Create an account and get your free access now!</span>
+                </button>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <section id="video">
+
+    </section>
+    <section id="how-it-works">
+        <div class="container">
+            <div class="row socketizer-secondary p-t-3" id="how">
+                <h2 class="centered">No buzz words, no complex things</h2>
+                <div class="col-xs-12 col-lg-6 lead p-t-3">
+                    <h3>Four steps</h3>
+                    <ol class="p-t-1">
+                        <li>Install our WordPress plugin</li>
+                        <li>Create an account</li>
+                        <li>Get your key</li>
+                        <li>Paste your key in plugin's settings</li>
+                    </ol>
+                    <p>Thats it!<br>
+                        You are already up and running realtime.
+                    </p>
+                </div>
+                <div class="col-xs-12 col-lg-6 lead  p-t-3">
+                    <h3>Details</h3>
+                    <ul class="p-t-1">
+                        <li>You call our service (through our plugin) and we
+                            update your visitors
+                        </li>
+                        <li>Each visitor counts towards max concurent
+                            visitors.
+                        </li>
+                        <li>If visitors exceed max concurrent visitors, we
+                            simply
+                            do not accept more, the service continues to work
+                            for those
+                            already connected.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pricing">
+
+        <div class="row m-t-2 p-x-2">
+
+            <h2 class="centered socketizer-primary m-y-1">Pricing Plans</h2>
+
+            <div class="col-lg-2"></div>
+            <div class="col-xs-12 col-lg-2">
+                <div class="card text-xs-center">
+                    <div class="card-header bg-socketizer-light socketizer-secondary card-title">
+                        Tester
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">Free</h4>
+                        <p class="card-text lead">Ideal to check the
+                            service</p>
+                        <p class="card-text">
+                            5 Concurrent visitors
+                        </p><hr>
+                        <a href="{% url 'account_signup' %}" class="btn socketizer-btn-primary">
+                            Sign up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-socketizer-primary socketizer-secondary card-title centered">
+                        Normal
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title centered">$1 +
+                            $0.01/Concurrent visitor</h4>
+                        <p class="card-text lead centered">Pay for what you
+                            need.<br>
+                            Ideal for small to medium sized websites
+                        </p>
+                        <p class="card-text centered">
+                            Each month you will be charged $1 plus
+                            $0.01 for each concurrent visitor, up to 1000
+                            visitors
+                        </p><hr>
+                        <h6>Example:</h6>
+                        <p class="card-text">
+                            For 500 concurrent visitors, you pay:<br> 500 x
+                            $0.01 +
+                            $1 = <strong>$6/Month</strong>
+                        </p>
+                        <p class="card-text">
+                            Each plan is for one domain
+                        </p><hr>
+                        <div class="centered">
+                            <a href="{% url 'account_signup' %}" class="btn socketizer-btn-primary">
+                                Sign up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-socketizer-dark socketizer-secondary card-title centered">
+                        Custom
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title centered">Get in touch</h4>
+                        <p class="card-text lead centered">
+                            Need more than 1000 concurrent users? <br>
+                            Have a live news site?
+                        </p>
+                        <p class="card-text centered">
+                            Get in touch in order to discuss your requirements
+                            and set up your custom plan
+                        </p><hr>
+                        <div class="centered">
+                            <a href="#" class="btn socketizer-btn-primary">
+                                Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}
+
