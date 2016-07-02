@@ -33,7 +33,7 @@
                             <td>{{ domain.max_concurrent_connections }}</td>
                             <td>
                                 {% if domain.free_key %}
-                                    in BETA (free)
+                                    <span class="label label-success">FREE</span>
                                 {% else %}
                                     {{ domain.days_left }}
                                 {% endif %}

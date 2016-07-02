@@ -36,8 +36,6 @@ class Domain(models.Model):
     # Domain status - current usage
     # api calls per month, at the beginning of the month this goes to 0
     current_month_api_calls = models.IntegerField(default=0)
-    # current connected sockets
-    current_connections = models.IntegerField(default=0)
 
     def generate_key(self):
         """Generates a new API key"""
