@@ -35,7 +35,7 @@ class DomainCreate(CreateView):
 @method_decorator(login_required, name='dispatch')
 class DomainUpdate(UpdateView):
     model = models.Domain
-    template_name = 'domain-add.html'
+    template_name = 'domain-update.html'
     success_url = 'profile'
     fields = ['domain']
 

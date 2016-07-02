@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
+    <div class="container-fluid">
         <h1>Settings</h1>
         <hr>
         <h2>Personal Details</h2>
@@ -14,6 +14,8 @@
                     <tr>
                         <th>Domain</th>
                         <th>API Key</th>
+                        <th>Max Concurrent Connections</th>
+                        <th>Days Left</th>
                         <th>Edit</th>
                         <th>Regenerate API Key</th>
                         <th>Delete</th>
@@ -27,6 +29,14 @@
                             </td>
                             <td>
                                 <pre>{{ domain.api_key }}</pre>
+                            </td>
+                            <td>{{ domain.max_concurrent_connections }}</td>
+                            <td>
+                                {% if domain.free_key %}
+                                    in BETA (free)
+                                {% else %}
+                                    {{ domain.days_left }}
+                                {% endif %}
                             </td>
                             <td>
                                 <a href="{% url 'domain-update' domain.pk %}">edit</a>

@@ -17,13 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
+    # admin site
+    url(r'^admin/', admin.site.urls),
     # Allauth urls
     url(r'^accounts/', include('allauth.urls')),
     # Custom user profile (extends default User)
     url(r'^accounts/', include('userprofiles.urls')),
-    # admin site
-    url(r'^admin/', admin.site.urls),
-    
     # mainsite
     url(r'^', include('mainsite.urls')),
     

@@ -13,6 +13,8 @@ class Settings(models.Model):
     # do we give free keys?
     free_keys = models.BooleanField(default=False)
     in_beta = models.BooleanField(default=True)
+    # if yes we set some limits
+    max_concurrent_connections = models.IntegerField(default=100)
 
 
 class Domain(models.Model):
@@ -36,8 +38,6 @@ class Domain(models.Model):
     current_month_api_calls = models.IntegerField(default=0)
     # current connected sockets
     current_connections = models.IntegerField(default=0)
-    # Domain status last update
-    user_limits_last_update = models.DateTimeField(null=True)
 
     def generate_key(self):
         """Generates a new API key"""
@@ -48,9 +48,19 @@ class Domain(models.Model):
         return reverse('domain-detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
-        # url = parse.urlparse(self.domain)
-        self.domain = parse.urlparse(self.domain)[1]
-        print(self.domain)
+
+        self.domain = parse.urlparse(self.domain)
+        if self.domain[1] != '':
+            self.domain = self.domain[1]
+        else:
+            self.domain = self.domain[2]
+        settings = Settings.objects.all().first()
+        # if its a newly created object
+        if self.pk is None:
+            if settings.in_beta:
+                self.max_concurrent_connections = \
+                    settings.max_concurrent_connections
+                self.free_key = True
         super(Domain, self).save(*args, **kwargs)
 
 
