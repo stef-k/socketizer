@@ -1,5 +1,6 @@
 import hashlib
 import random
+from urllib import parse
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -40,10 +41,17 @@ class Domain(models.Model):
 
     def generate_key(self):
         """Generates a new API key"""
-        self.api_key = hashlib.sha256(str(random.getrandbits(128)).encode('utf-8')).hexdigest()
+        self.api_key = hashlib.sha256(str(
+            random.getrandbits(128)).encode('utf-8')).hexdigest()
 
     def get_absolute_url(self):
         return reverse('domain-detail', kwargs={'pk': self.pk})
+
+    def save(self, *args, **kwargs):
+        # url = parse.urlparse(self.domain)
+        self.domain = parse.urlparse(self.domain)[1]
+        print(self.domain)
+        super(Domain, self).save(*args, **kwargs)
 
 
 class Billing(models.Model):

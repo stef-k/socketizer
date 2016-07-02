@@ -7,6 +7,7 @@
         {{ user.get_username }}
         <h2>Domains</h2>
         {% if domains %}
+            <a href="{% url 'domain-add' %}" title="add new domain">new domain</a>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
