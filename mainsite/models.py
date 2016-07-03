@@ -25,10 +25,8 @@ class Domain(models.Model):
     # Foreign key to User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    domain = models.CharField(max_length=512, default='')
+    domain = models.CharField(max_length=512, default='', unique=True)
     api_key = models.CharField(max_length=512, default='')
-    # if true the user can use the service for free
-    free_key = models.BooleanField(default=False)
     # Domain limits, based on purchased plan
     # days of active subscription, each day reduced by 1
     days_left = models.IntegerField(default=0)
@@ -52,13 +50,6 @@ class Domain(models.Model):
             self.domain = self.domain[1]
         else:
             self.domain = self.domain[2]
-        settings = Settings.objects.all().first()
-        # if its a newly created object
-        if self.pk is None:
-            if settings.in_beta:
-                self.max_concurrent_connections = \
-                    settings.max_concurrent_connections
-                self.free_key = True
         super(Domain, self).save(*args, **kwargs)
 
 
