@@ -11,4 +11,5 @@ urlpatterns = [
                                                )),
     # site's landing page
     url(r'^$', views.index),
+    url(r'^cmd/pool-info/$', views.pool_info),
 ]

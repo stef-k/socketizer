@@ -10,11 +10,21 @@ from django.core.urlresolvers import reverse
 class Settings(models.Model):
     """Runtime application settings"""
 
+    service_key = models.CharField(max_length=512, default='')
     # do we give free keys?
     free_keys = models.BooleanField(default=False)
     in_beta = models.BooleanField(default=True)
     # if yes we set some limits
     max_concurrent_connections = models.IntegerField(default=100)
+
+    def generate_key(self):
+        """Generates a new service key for communication between services"""
+        self.service_key = hashlib.sha256(str(
+            random.getrandbits(256)).encode('utf-8')).hexdigest()
+
+    def save(self, *args, **kwargs):
+        self.generate_key()
+        super(Settings, self).save(*args, **kwargs)
 
 
 class Domain(models.Model):

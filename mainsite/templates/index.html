@@ -28,11 +28,9 @@
                     class="bg-socketizer-secondary socketizer-primary">F5</kbd>
                 and refresh button spamming<br>
                 Based on websockets technology our aim is
-                to enable seamless realtime updates to your connected
-                clients<br>
-                No coding skills
-                <span data-toggle="tooltip" data-placement="top"
-                      title="You may need to add a CSS selector if your theme is not WordPress compatible"> required*</span>,
+                to enable seamless realtime updates to your website's visitors
+                <br>
+                No coding skills required,
                 install our plugin and you are
                 ready to go!
             </p>
@@ -42,9 +40,11 @@
                 Our service is currently in BETA version, that means
                 until our launching, we are giving free keys.
                 <br>
-                <button type="button" class="btn socketizer-btn-outline"><span
+                <button type="button" class="btn socketizer-btn-outline m-t-1"><span
                         class="lead">Create an account and get your free access now!</span>
                 </button>
+            </p>
+            <p class="centered lead socketizer-w" id="poolInfo">
             </p>
         </div>
     </div>
@@ -107,8 +107,10 @@
                             service</p>
                         <p class="card-text">
                             5 Concurrent visitors
-                        </p><hr>
-                        <a href="{% url 'account_signup' %}" class="btn socketizer-btn-primary">
+                        </p>
+                        <hr>
+                        <a href="{% url 'account_signup' %}"
+                           class="btn socketizer-btn-primary">
                             Sign up</a>
                     </div>
                 </div>
@@ -129,7 +131,8 @@
                             Each month you will be charged $1 plus
                             $0.01 for each concurrent visitor, up to 1000
                             visitors
-                        </p><hr>
+                        </p>
+                        <hr>
                         <h6>Example:</h6>
                         <p class="card-text">
                             For 500 concurrent visitors, you pay:<br> 500 x
@@ -138,9 +141,11 @@
                         </p>
                         <p class="card-text">
                             Each plan is for one domain
-                        </p><hr>
+                        </p>
+                        <hr>
                         <div class="centered">
-                            <a href="{% url 'account_signup' %}" class="btn socketizer-btn-primary">
+                            <a href="{% url 'account_signup' %}"
+                               class="btn socketizer-btn-primary">
                                 Sign up</a>
                         </div>
                     </div>
@@ -160,7 +165,8 @@
                         <p class="card-text centered">
                             Get in touch in order to discuss your requirements
                             and set up your custom plan
-                        </p><hr>
+                        </p>
+                        <hr>
                         <div class="centered">
                             <a href="#" class="btn socketizer-btn-primary">
                                 Contact Us</a>
@@ -172,6 +178,21 @@
         </div>
 
     </section>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                data = JSON.parse(xhttp.responseText);
+                var info = document.querySelector('#poolInfo');
+                info.innerHTML = "<span class='label bg-socketizer-opposite strong'><span class='blinkit'>LIVE NOW</span></span> " +
+                        "Domains connected: <span class='label bg-socketizer-opposite strong'>" +
+                        data.DomainCount + "</span> Total clients: <span class='label bg-socketizer-opposite strong'>" +
+                        data.ClientSub + "</span> refresh page to check again.";
+            }
+        };
+        xhttp.open('GET', 'cmd/pool-info/', true);
+        xhttp.send();
 
+    </script>
 {% endblock %}
 
