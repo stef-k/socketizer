@@ -12,7 +12,9 @@ from mainsite.models import Domain
 class UserProfile(View):
     def get(self, request):
         domains = models.Domain.objects.filter(user=request.user)
-        return render(request, 'userprofile.html', {'domains': domains})
+        settings = models.Settings.objects.all()[0]
+        return render(request, 'userprofile.html', {'domains': domains,
+                                                    'settings': settings})
 
 
 @method_decorator(login_required, name='dispatch')
@@ -49,7 +51,6 @@ class DomainUpdate(UpdateView):
 
 @login_required
 def regenerate_api_key(request, pk):
-
     obj = get_object_or_404(Domain, pk=pk)
     obj.generate_key()
     obj.save()

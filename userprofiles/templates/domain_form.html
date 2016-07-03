@@ -16,12 +16,23 @@
                                 <div class="form-group row">
                                     <label for="domain"
                                            class="col-xs-12 col-md-4 form-control-label">Domain</label>
-                                    <div class="col-xs-12 col-md-8">
+                                    <div class="col-xs-12 col-md-8 {% if form.domain.errors %}has-danger{% endif %}">
                                         <input type="text" class="form-control"
                                                id="domain"
                                                name="domain"
                                                placeholder="www.example.com"
                                                value="{{ form.domain.value|default_if_none:'' }}">
+                                        <ul class="list-unstyled m-t-1">
+                                            {% for error in form.domain.errors %}
+                                                {% if error == 'Domain with this Domain already exists.' %}
+                                                    <li class="socketizer-opposite">This domain name is already registered!</li>
+                                                {% else %}
+                                                    <li class="socketizer-opposite">{{ error }}</li>
+                                                {% endif %}
+
+
+                                            {% endfor %}
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="form-group row">

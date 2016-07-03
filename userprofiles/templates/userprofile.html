@@ -7,7 +7,7 @@
         {{ user.get_username }}
         <h2>Domains</h2>
         {% if domains %}
-            <a href="{% url 'domain-add' %}" title="add new domain">new domain</a>
+            <a href="{% url 'domain-add' %}" title="add new domain" class="btn socketizer-btn-primary m-y-1">new domain</a>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -30,10 +30,16 @@
                             <td>
                                 <pre>{{ domain.api_key }}</pre>
                             </td>
-                            <td>{{ domain.max_concurrent_connections }}</td>
                             <td>
-                                {% if domain.free_key %}
-                                    <span class="label label-success">FREE</span>
+                                {% if settings.free_keys %}
+                                    {{ settings.max_concurrent_connections }}
+                                {% else %}
+                                 {{ domain.max_concurrent_connections }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if settings.free_keys %}
+                                    <span class="label label-success">FREE Key</span>
                                 {% else %}
                                     {{ domain.days_left }}
                                 {% endif %}
