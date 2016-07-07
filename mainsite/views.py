@@ -17,7 +17,9 @@ def pool_info(request):
     url = 'http://localhost:8080/service/api/v1/pool-info'
     data = {'serviceKey': settings.service_key}
 
-    response = requests.post(url, json=data)
-    print(response.json())
+    try:
+        response = requests.post(url, json=data)
 
-    return JsonResponse(response.json())
+        return JsonResponse(response.json())
+    except Exception:
+        return JsonResponse({"DomainCount": 0, "ClientSub": 0})
