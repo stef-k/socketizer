@@ -36,7 +36,6 @@ else:
     # Hosts and Domains that are valid for this site
     ALLOWED_HOSTS = ['socketizer.com']
 
-
 # Application definition
 # Common apps
 DJANGO_APPS = [
@@ -51,22 +50,21 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-
 THIRD_PARTY_APPS = [
     # Django allauth
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',
     # Django Rest Framework
-    'rest_framework',
+    # 'rest_framework',
     # Django storages
     'storages'
 ]
 
 PROJECT_APPS = [
-    
+
     'mainsite',
-    
+
     # User Profile app
     'userprofiles',
 ]
@@ -157,20 +155,23 @@ if not DEVELOPMENT:
     #
     # STATICFILES_LOCATION = 'static'
     # STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    # STATIC_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'.format(
+    # STATIC_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{
+    # STATICFILES_LOCATION}/'.format(
     #     AWS_S3_CUSTOM_DOMAIN=AWS_S3_CUSTOM_DOMAIN,
     #     STATICFILES_LOCATION=STATICFILES_LOCATION,
     # )
     # # MEDIA files...
     MEDIAFILES_LOCATION = 'media'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIA_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{DEFAULT_FILE_STORAGE}/'.format(
+    MEDIA_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{' \
+                'DEFAULT_FILE_STORAGE}/'.format(
         AWS_S3_CUSTOM_DOMAIN=AWS_S3_CUSTOM_DOMAIN,
         DEFAULT_FILE_STORAGE=DEFAULT_FILE_STORAGE,
     )
 
     # Header cache expiry
-    AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+    AWS_HEADERS = {
+    # see http://developer.yahoo.com/performance/rules.html#expires
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'Cache-Control': 'max-age=94608000',
     }
@@ -199,16 +200,28 @@ else:
 # ------------------------------------------------------------------------------
 # PostgreSQL
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'socketizer',
-        'USER': secret_variable('database', 'USER'),
-        'PASSWORD': secret_variable('database', 'PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
+if DEVELOPMENT:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'socketizer',
+            'USER': secret_variable('database', 'USER'),
+            'PASSWORD': secret_variable('database', 'PASSWORD'),
+            'HOST': '127.0.0.1',
+            'PORT': '5433',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'socketizer',
+            'USER': secret_variable('database', 'USER'),
+            'PASSWORD': secret_variable('database', 'PASSWORD'),
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
 
 # ------------------------------------------------------------------------------
 # PASSWORD VALIDATION CONFIGURATION
@@ -217,16 +230,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.NumericPasswordValidator',
     },
 ]
 # ------------------------------------------------------------------------------
@@ -256,7 +273,7 @@ SITE_ID = 1
 # ------------------------------------------------------------------------------
 # EMAIL CONFIGURATION
 DEFAULT_FROM_EMAIL = \
-    'socketizer <noreply@socketizer.com>'
+    'socketizer <info@socketizer.com>'
 
 ADMINS = (
     ("""stef kariotidis""", 'stef.kariotidis@gmail.com'),
