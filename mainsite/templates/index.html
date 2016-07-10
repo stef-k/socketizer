@@ -143,10 +143,10 @@
                             </p>
                             <p class="card-text text-justify">
                                 Each month you will be charged $1 plus
-                                $0.1 for each concurrent visitor.<br>
+                                $0.1 for each concurrent visitor.
                                 If you exceed the limit, your website continues
-                                to function normally. No service disruption.
-                                <br><span tabindex="0" data-trigger="focus" class="socketizer-light tt"
+                                to function normally. No service disruption, your visitors will not notice a thing.
+                                <span tabindex="0" data-trigger="focus" class="socketizer-light tt"
                                           data-container="body"
                                           data-toggle="tooltip"
                                           data-placement="top"
@@ -220,40 +220,5 @@
             </div>
         </div>
     </section>
-    <script>
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                data = JSON.parse(xhttp.responseText);
-                var info = document.querySelector('#poolInfo');
-                info.innerHTML = "<span class='label bg-socketizer-opposite strong'><span class='blinkit'>LIVE NOW</span></span> " +
-                        "Domains connected: <span class='label bg-socketizer-opposite strong'>" +
-                        data.DomainCount + "</span> Total clients: <span class='label bg-socketizer-opposite strong'>" +
-                        data.ClientSub + "</span> refresh page to check again.";
-            }
-        };
-        xhttp.open('GET', 'cmd/pool-info/', true);
-        xhttp.send();
-
-        function waitJquery() {
-            if (window.$) {
-                // jQuery dependent code
-                $(document).ready(function () {
-                    $('#concurrentVisitors').on('click change keyup', function () {
-                        var vi = parseInt($(this).val());
-                        if (isNaN(vi)) {
-                            vi = 0
-                        }
-                        $('#users').text(vi);
-                        $('#price').text((1 + vi * 0.1).toFixed(2));
-                    });
-                });
-            } else {
-                setTimeout(waitJquery, 50);
-            }
-        }
-        waitJquery();
-
-    </script>
 {% endblock %}
 
