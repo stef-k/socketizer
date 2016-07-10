@@ -4,9 +4,11 @@
   min-height: 100vh;
   flex-direction: column;
 }
-.the-content{
+
+.the-content {
   flex: 1;
 }
+
 $color0: #001A27;
 $color1: #003049; //rgba(0, 48, 73, 100)
 $color2: #d62828; //rgba(214, 40, 40, 100)
@@ -41,6 +43,14 @@ $color6: #144763;
 
 .socketizer-opposite {
   color: $color2;
+}
+
+a.socketizer-w {
+  text-decoration: underline;
+}
+
+a:hover.socketizer-w {
+  color: $color5;
 }
 
 .bg-socketizer-opposite {
@@ -145,7 +155,7 @@ $color6: #144763;
   right: 0;
   top: 0;
   z-index: 1000;
-  width: 100%;
+  max-width: 100%;
 }
 
 // nav font size
@@ -164,16 +174,17 @@ nav a {
 }
 
 .socketizer-logo-circle {
-  clip-path: circle(50% at center);
-  padding: 20px;
+  border-radius: 50%;
+  padding: 10px;
   width: 7rem;
   height: auto;
 }
 
-.logo-text {
-  margin-left: -9px;
+.logo-text{
+  z-index: 5;
+  margin-left: -10px;
   font-size: 70px;
-  line-height: 100px;
+  line-height: 70px;
   vertical-align: bottom;
 }
 
@@ -189,8 +200,8 @@ nav a {
 }
 
 .socketizer-brand-logo-circle {
-  clip-path: circle(50% at center);
-  padding: 5px;
+  border-radius: 50%;
+  padding: 3px;
   width: 45px;
   height: auto;
 }
@@ -198,12 +209,6 @@ nav a {
 #bs-navbar-collapse-1 li a {
   padding-top: 11px;
   padding-bottom: auto;
-}
-
-#video {
-  margin-top: -25px;
-  height: 700px;
-  background: url("../img/demo.gif") no-repeat center center;
 }
 
 #how-it-works {
@@ -278,6 +283,14 @@ footer a:hover {
 .blinkit {
   animation: blinker 5s ease infinite;
 }
+
 @keyframes blinker {
-  50% { opacity: 0.4; }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.tt {
+  text-decoration: underline;
+  cursor: pointer;
 }

@@ -39,6 +39,14 @@
   color: #d62828;
 }
 
+a.socketizer-w {
+  text-decoration: underline;
+}
+
+a:hover.socketizer-w {
+  color: #eae2b7;
+}
+
 .bg-socketizer-opposite {
   background-color: #d62828;
 }
@@ -139,7 +147,7 @@
   right: 0;
   top: 0;
   z-index: 1000;
-  width: 100%;
+  max-width: 100%;
 }
 
 nav a {
@@ -157,17 +165,17 @@ nav a {
 }
 
 .socketizer-logo-circle {
-  -webkit-clip-path: circle(50% at center);
-          clip-path: circle(50% at center);
-  padding: 20px;
+  border-radius: 50%;
+  padding: 10px;
   width: 7rem;
   height: auto;
 }
 
 .logo-text {
-  margin-left: -9px;
+  z-index: 5;
+  margin-left: -10px;
   font-size: 70px;
-  line-height: 100px;
+  line-height: 70px;
   vertical-align: bottom;
 }
 
@@ -183,9 +191,8 @@ nav a {
 }
 
 .socketizer-brand-logo-circle {
-  -webkit-clip-path: circle(50% at center);
-          clip-path: circle(50% at center);
-  padding: 5px;
+  border-radius: 50%;
+  padding: 3px;
   width: 45px;
   height: auto;
 }
@@ -193,12 +200,6 @@ nav a {
 #bs-navbar-collapse-1 li a {
   padding-top: 11px;
   padding-bottom: auto;
-}
-
-#video {
-  margin-top: -25px;
-  height: 700px;
-  background: url("../img/demo.gif") no-repeat center center;
 }
 
 #how-it-works {
@@ -278,4 +279,9 @@ footer a:hover {
   50% {
     opacity: 0.4;
   }
+}
+
+.tt {
+  text-decoration: underline;
+  cursor: pointer;
 }
