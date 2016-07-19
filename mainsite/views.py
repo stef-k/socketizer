@@ -14,7 +14,7 @@ def pool_info(request):
 
     settings = Settings.objects.all()[0]
 
-    url = 'http://localhost:8080/service/api/v1/pool-info'
+    url = 'https://127.0.0.1:8080/service/api/v1/pool-info'
     data = {'serviceKey': settings.service_key}
 
     try:
