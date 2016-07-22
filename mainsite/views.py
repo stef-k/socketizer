@@ -3,7 +3,8 @@ import requests
 from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Settings
-
+import logging
+log = logging.getLogger(__name__)
 
 # Create your views here.
 def index(request):
@@ -14,12 +15,13 @@ def pool_info(request):
 
     settings = Settings.objects.all()[0]
 
-    url = 'https://127.0.0.1:8080/service/api/v1/pool-info'
+    url = 'https://service.socketizer.com/service/api/v1/pool-info'
     data = {'serviceKey': settings.service_key}
 
     try:
         response = requests.post(url, json=data)
-
+        log.debug('pool-info request results: {}'.format(response.json()))
         return JsonResponse(response.json())
-    except Exception:
+    except Exception as e:
+        log.debug('could not complete pool-info request {}'.format(e))
         return JsonResponse({"DomainCount": 0, "ClientSub": 0})
