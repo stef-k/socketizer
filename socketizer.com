@@ -18,7 +18,10 @@ server {
 	include snippets/ssl-params.conf;
 	server_name socketizer.com www.socketizer.com;
 
-
+	# logs
+	access_log /var/log/nginx/socketizer_access.log;
+	error_log /var/log/nginx/socketizer_error.log;
+	# do not log events about favicon
 	location = /favicon.ico { access_log off; log_not_found off; }
 
 
@@ -43,6 +46,10 @@ server {
 	include snippets/ssl-socketizer.com.conf;
 	include snippets/ssl-params.conf;
 
+	# logs
+	access_log /var/log/nginx/socketizer-service_access.log;
+	error_log /var/log/nginx/socketizer-service_error.log;
+	# do not log events about favicon
 	location = /favicon.ico { access_log off; log_not_found off; }
 
     	proxy_pass_header Server;
