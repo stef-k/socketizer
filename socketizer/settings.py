@@ -34,7 +34,9 @@ if DEVELOPMENT:
     ALLOWED_HOSTS = []
 else:
     # Hosts and Domains that are valid for this site
-    ALLOWED_HOSTS = ['socketizer.com', 'service.socketizer.com']
+    ALLOWED_HOSTS = ['socketizer.com', 'www.socketizer.com',
+                     'service.socketizer.com',
+                     'www.service.socketizer.com']
 
 # Application definition
 # Common apps
