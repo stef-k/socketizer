@@ -11,6 +11,8 @@ class Settings(models.Model):
     """Runtime application settings"""
 
     service_key = models.CharField(max_length=512, default='')
+    # max connections
+    max_connection = models.IntegerField(default=5000)
     # do we give free keys?
     free_keys = models.BooleanField(default=False)
     in_beta = models.BooleanField(default=True)
