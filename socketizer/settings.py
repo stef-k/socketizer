@@ -143,6 +143,9 @@ STATICFILES_DIRS = (
                  'static'),
 )
 
+# WhiteNois compression and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Media files
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
