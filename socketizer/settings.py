@@ -34,7 +34,7 @@ if DEVELOPMENT:
     ALLOWED_HOSTS = []
 else:
     # Hosts and Domains that are valid for this site
-    ALLOWED_HOSTS = ['socketizer.com']
+    ALLOWED_HOSTS = ['socketizer.com', 'service.socketizer.com']
 
 # Application definition
 # Common apps
@@ -129,99 +129,40 @@ AUTHENTICATION_BACKENDS = (
 # # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 # ------------------------------------------------------------------------------
-if not DEVELOPMENT:
-    # S3 settings
-    AWS_STORAGE_BUCKET_NAME = \
-        secret_variable.secret_variable('s3', 'AWS_STORAGE_BUCKET_NAME')
-    AWS_ACCESS_KEY_ID = \
-        secret_variable.secret_variable('s3', 'AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = \
-        secret_variable.secret_variable('s3', 'AWS_SECRET_ACCESS_KEY')
+# Static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-    # Tell django-storages that when coming up with the URL for an item in S3
-    # storage just use this domain plus the path.
-    AWS_S3_CUSTOM_DOMAIN = '{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'.format(
-        AWS_STORAGE_BUCKET_NAME=AWS_STORAGE_BUCKET_NAME
-    )
-    # ABOUT STATIC FILES: Static files are handled by WhiteNoise, see
-    # http://whitenoise.evans.io/en/stable/ which is better solution from S3
-    # You can remove WhiteNoise and enable the follow to let S3 handle them.
-    # Our STATIC files will live at:
-    # https://AWS_S3_CUSTOM_DOMAIN/STATIC_FILES_LOCATION.s3.amazonaws.com
-    # Our MEDIA files will live at:
-    # https://AWS_S3_CUSTOM_DOMAIN/MEDIA_FILES_LOCATION.s3.amazonaws.com
-    # Tell the staticfiles app to use S3Boto storage when writing the collected
-    # static files (when you run `collectstatic`).
-    #
-    # STATICFILES_LOCATION = 'static'
-    # STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    # STATIC_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{
-    # STATICFILES_LOCATION}/'.format(
-    #     AWS_S3_CUSTOM_DOMAIN=AWS_S3_CUSTOM_DOMAIN,
-    #     STATICFILES_LOCATION=STATICFILES_LOCATION,
-    # )
-    # # MEDIA files...
-    MEDIAFILES_LOCATION = 'media'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIA_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{' \
-                'DEFAULT_FILE_STORAGE}/'.format(
-        AWS_S3_CUSTOM_DOMAIN=AWS_S3_CUSTOM_DOMAIN,
-        DEFAULT_FILE_STORAGE=DEFAULT_FILE_STORAGE,
-    )
+STATIC_URL = '/static/'
 
-    # Header cache expiry
-    AWS_HEADERS = {
-    # see http://developer.yahoo.com/performance/rules.html#expires
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'Cache-Control': 'max-age=94608000',
-    }
-else:
-    # Static files
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(BASE_DIR),
+                 'socketizer',
+                 'socketizer',
+                 'static'),
+)
 
-    STATIC_URL = '/static/'
+# Media files
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-    STATICFILES_DIRS = (
-        os.path.join(os.path.dirname(BASE_DIR),
-                     'socketizer',
-                     'socketizer',
-                     'static'),
-    )
-
-    # Media files
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-    MEDIA_URL = '/media/'
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+MEDIA_URL = '/media/'
 # ------------------------------------------------------------------------------
 # DATABASE CONFIGURATION
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 # ------------------------------------------------------------------------------
 # PostgreSQL
 
-if DEVELOPMENT:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'socketizer',
-            'USER': secret_variable('database', 'USER'),
-            'PASSWORD': secret_variable('database', 'PASSWORD'),
-            'HOST': '127.0.0.1',
-            'PORT': '5433',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'socketizer',
+        'USER': secret_variable('database', 'USER'),
+        'PASSWORD': secret_variable('database', 'PASSWORD'),
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'socketizer',
-            'USER': secret_variable('database', 'USER'),
-            'PASSWORD': secret_variable('database', 'PASSWORD'),
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
-        }
-    }
+}
 
 # ------------------------------------------------------------------------------
 # PASSWORD VALIDATION CONFIGURATION
@@ -278,18 +219,14 @@ DEFAULT_FROM_EMAIL = \
 ADMINS = (
     ("""stef kariotidis""", 'stef.kariotidis@gmail.com'),
 )
-if DEVELOPMENT:
-    EMAIL_HOST = 'localhost'
-    EMAIL_PORT = 1025
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
-    EMAIL_HOST = 'in-v3.mailjet.com'
-    EMAIL_HOST_USER = \
-        secret_variable('mailjet', 'EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = \
-        secret_variable('mailjet', 'EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'in-v3.mailjet.com'
+EMAIL_HOST_USER = \
+    secret_variable('mailjet', 'EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = \
+    secret_variable('mailjet', 'EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 # THIRD PARTY CONFIGURATION
 # ------------------------------------------------------------------------------
 # SLUGLIFIER
