@@ -1,5 +1,6 @@
 # !!!CAUTION!!! The secret variables file
 secret_variables.secret_variables
+!log/app.log
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -76,8 +77,6 @@ ENV/
 
 # Node related
 # Logs
-logs
-*.log
 npm-debug.log*
 
 # Runtime data
