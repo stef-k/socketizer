@@ -5,8 +5,10 @@ defusedxml==0.4.1
 Django==1.10
 django-allauth==0.26.1
 django-filter==0.13.0
+django-mailjet==0.2.0
 django-storages==1.5.0
 djangorestframework==3.4.3
+mailjet-rest==1.2.2
 Markdown==2.6.6
 oauthlib==1.1.2
 psycopg2==2.6.2
