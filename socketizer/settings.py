@@ -213,18 +213,18 @@ SITE_ID = 1
 
 # ------------------------------------------------------------------------------
 # EMAIL CONFIGURATION
-DEFAULT_FROM_EMAIL = \
-    'socketizer <info@socketizer.com>'
+DEFAULT_FROM_EMAIL = 'info@socketizer.com'
+
+SERVER_EMAIL = 'server@socketizer.com'
 
 ADMINS = (
     ("""stef kariotidis""", 'stef.kariotidis@gmail.com'),
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'in-v3.mailjet.com'
-EMAIL_HOST_USER = \
-    secret_variable('mailjet', 'EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = \
-    secret_variable('mailjet', 'EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = secret_variable('mailjet', 'EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = secret_variable('mailjet', 'EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # THIRD PARTY CONFIGURATION
