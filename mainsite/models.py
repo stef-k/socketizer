@@ -49,7 +49,7 @@ class Stats(models.Model):
     """
 
     total_clients = models.BigIntegerField(default=0)
-    max_concurrent_clients = models.IntegerField(default=0)
+    max_clients = models.IntegerField(default=0)
 
     class Meta:
         verbose_name_plural = 'stats'
