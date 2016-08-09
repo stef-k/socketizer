@@ -30,6 +30,9 @@ class Settings(models.Model):
     max_concurrent_connections = \
         models.IntegerField(default=100, help_text='Domain limits')
 
+    class Meta:
+        verbose_name_plural = 'settings'
+
     def generate_key(self):
         """Generates a new service key for communication between services"""
         self.service_key = hashlib.sha256(str(
