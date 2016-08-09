@@ -43,16 +43,20 @@ class Settings(models.Model):
         super(Settings, self).save(*args, **kwargs)
 
 
-class Stats(models.Model):
+class Statistics(models.Model):
     """Holds simple stats about the application, such as, total clients served
     maximum concurrent clients ever served.
     """
 
-    total_clients = models.BigIntegerField(default=0)
-    max_clients = models.IntegerField(default=0)
+    total_clients = models.BigIntegerField(default=0,
+                                           help_text='total of clients '
+                                                     'served until today')
+    max_concurrent_clients = models.IntegerField(default=0,
+                                                 help_text='max concurrent '
+                                                           'clients ever')
 
     class Meta:
-        verbose_name_plural = 'stats'
+        verbose_name_plural = 'statistics'
 
 
 class Domain(models.Model):
