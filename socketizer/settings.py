@@ -37,7 +37,7 @@ else:
     ALLOWED_HOSTS = ['socketizer.com', 'www.socketizer.com',
                      'service.socketizer.com',
                      'www.service.socketizer.com',
-                     '139.162.240.64']
+                     '139.162.240.64', '62.103.31.233']
 
 # Application definition
 # Common apps
