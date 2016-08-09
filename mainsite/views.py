@@ -2,7 +2,7 @@ import requests
 
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Settings
+from .models import Settings, Statistics
 import logging
 
 log = logging.getLogger(__name__)
@@ -11,7 +11,10 @@ log = logging.getLogger(__name__)
 # Create your views here.
 def index(request):
     settings = Settings.objects.first()
-    return render(request, 'index.html', {'settings': settings})
+    stats = Statistics.objects.first()
+    return render(request, 'index.html',
+                  {'settings': settings,
+                   'stats': stats})
 
 
 def pool_info(request):

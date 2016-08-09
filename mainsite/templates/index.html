@@ -52,6 +52,8 @@
                 {% endif %}
                 Server limits: <span class="text-success">{{ settings.max_connection }} </span>
                 Limits per domain: <span class="text-success">{{ settings.max_concurrent_connections }}</span>
+                Total clients served until now: <span class="text-success">{{ stats.total_clients }} </span>
+                Max concurrent clients ever: <span class="text-success">{{ stats.max_concurrent_clients }} </span>
             </p>
             <p class="centered lead socketizer-w" id="poolInfo">
             </p>
