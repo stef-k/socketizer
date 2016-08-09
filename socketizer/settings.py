@@ -282,6 +282,10 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'standard'
         },
+        # this handler is for silencing any unwanted events
+        'null': {
+            'class': 'logging.NullHandler',
+        },
     },
     'loggers': {
         '': {
