@@ -10,6 +10,11 @@ from django.core.urlresolvers import reverse
 class Settings(models.Model):
     """Runtime application settings"""
 
+    service_is_active = \
+        models.BooleanField(default=True,
+                            help_text='Enables - disables the websocket '
+                                      'service')
+
     service_key = \
         models.CharField(max_length=512,
                          default='',
