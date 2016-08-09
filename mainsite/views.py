@@ -4,15 +4,17 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from .models import Settings
 import logging
+
 log = logging.getLogger(__name__)
+
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    settings = Settings.objects.first()
+    return render(request, 'index.html', {'settings': settings})
 
 
 def pool_info(request):
-
     settings = Settings.objects.all()[0]
 
     url = 'https://service.socketizer.com/service/api/v1/pool-info'

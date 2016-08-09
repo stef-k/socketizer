@@ -43,6 +43,16 @@
                 <a href="{% url 'account_signup' %}" class="socketizer-w">Create
                     an account and get your free access now!</a>
             </p>
+            <p class="centered lead socketizer-w">
+                Service status:
+                {% if settings.service_is_active %}
+                <span class="text-success">service is active</span>
+                {% else %}
+                 <span class="socketizer-opposite">service is inactive</span>
+                {% endif %}
+                Server limits: <span class="text-success">{{ settings.max_connection }} </span>
+                Limits per domain: <span class="text-success">{{ settings.max_concurrent_connections }}</span>
+            </p>
             <p class="centered lead socketizer-w" id="poolInfo">
             </p>
         </div>

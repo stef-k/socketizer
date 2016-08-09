@@ -33,6 +33,7 @@
 </head>
 
 <body class="the-site">
+<div id="home"></div>
 {% block prenav %}{% endblock %}
 <nav class="navbar socketizer-navbar-secondary navbar-full fixed-top navbar-static-top bg-socketizer-primary"
      {% if request.path == '/' %}data-toggle="sticky-onscroll"{% endif %}>
@@ -56,6 +57,9 @@
         <div class="collapse navbar-toggleable-xs" id="bs-navbar-collapse-1">
             {% if request.path == '/' %}
                 <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#page-top">Features</a>
                     </li>
