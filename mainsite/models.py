@@ -40,6 +40,18 @@ class Settings(models.Model):
         super(Settings, self).save(*args, **kwargs)
 
 
+class Stats(models.Model):
+    """Holds simple stats about the application, such as, total clients served
+    maximum concurrent clients ever served.
+    """
+
+    total_clients = models.BigIntegerField(default=0)
+    max_concurrent_clients = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name_plural = 'stats'
+
+
 class Domain(models.Model):
     """Domain a user may have many domains, for each domain there must be a
     purhased plan in order to be usable
