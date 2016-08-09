@@ -36,7 +36,8 @@ else:
     # Hosts and Domains that are valid for this site
     ALLOWED_HOSTS = ['socketizer.com', 'www.socketizer.com',
                      'service.socketizer.com',
-                     'www.service.socketizer.com']
+                     'www.service.socketizer.com',
+                     '139.162.240.64']
 
 # Application definition
 # Common apps
