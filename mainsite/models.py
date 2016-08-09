@@ -10,14 +10,20 @@ from django.core.urlresolvers import reverse
 class Settings(models.Model):
     """Runtime application settings"""
 
-    service_key = models.CharField(max_length=512, default='')
+    service_key = \
+        models.CharField(max_length=512,
+                         default='',
+                         help_text='A secret key to talk to websockets '
+                                   'service')
     # max connections
-    max_connection = models.IntegerField(default=5000)
+    max_connection = models.IntegerField(default=5000,
+                                         help_text='Server limits')
     # do we give free keys?
     free_keys = models.BooleanField(default=False)
     in_beta = models.BooleanField(default=True)
     # if yes we set some limits
-    max_concurrent_connections = models.IntegerField(default=100)
+    max_concurrent_connections = \
+        models.IntegerField(default=100, help_text='Domain limits')
 
     def generate_key(self):
         """Generates a new service key for communication between services"""
