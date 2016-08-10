@@ -51,7 +51,14 @@
                  <span class="socketizer-opposite">service is inactive</span>
                 {% endif %}
                 Server limits: <span class="text-success">{{ settings.max_connection }} </span>
-                Limits per domain: <span class="text-success">{{ settings.max_concurrent_connections }}</span>
+                Limits per domain:
+                <span class="text-success">
+                    {% if settings.max_concurrent_connections > -1 %}
+                        {{ settings.max_concurrent_connections }}
+                    {% else %}
+                        No limits
+                    {% endif %}
+                 </span>
                 Total clients served until now: <span class="text-success">{{ stats.total_clients }} </span>
                 Max concurrent clients ever: <span class="text-success">{{ stats.max_concurrent_clients }} </span>
             </p>
