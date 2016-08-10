@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secret_variable('settings', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # Staying simple, use one settings file with conditional statements
 DEVELOPMENT = False
 
@@ -37,7 +37,7 @@ else:
     ALLOWED_HOSTS = ['socketizer.com', 'www.socketizer.com',
                      'service.socketizer.com',
                      'www.service.socketizer.com',
-                     '139.162.240.64', '0.0.0.0']
+                     '139.162.240.64']
 
 # Application definition
 # Common apps
