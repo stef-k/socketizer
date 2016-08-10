@@ -17,4 +17,4 @@ python3-openid==3.0.10
 pytz==2016.6.1
 requests==2.10.0
 requests-oauthlib==0.6.2
-whitenoise==3.2
+whitenoise==3.2.1

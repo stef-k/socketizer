@@ -285,3 +285,42 @@ footer a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
+#how-it-works a {
+  color: #fff;
+}
+
+#how-it-works a:hover {
+  color: #d62828 !important;
+}
+
+#how-it-works a:visited {
+  color: #fff;
+}
+
+.toTop {
+  background: rgba(0, 0, 0, 0.3);
+  height: 2em;
+  width: 5em;
+  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+  position: fixed;
+  bottom: 75px;
+  right: 15px;
+  color: #fff;
+  display: none;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.toTop:visited {
+  color: #fff;
+}
+
+.toTop:hover {
+  text-decoration: none;
+  color: #eae2b7;
+  background: rgba(0, 0, 0, 0.8);
+}

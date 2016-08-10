@@ -68,6 +68,7 @@ Socketizer.ui = (function () {
     self.smoothScroll();
     self.niceScroll();
     self.bootstrapJs();
+    self.toTop();
   };
 
   self.sticky = function () {
@@ -129,6 +130,22 @@ Socketizer.ui = (function () {
     $("html").niceScroll({
       scrollspeed: 60,
       mousescrollstep: 120
+    });
+  };
+
+  self.toTop = function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 700) {
+        $('.toTop').fadeIn();
+      } else {
+        $('.toTop').fadeOut();
+      }
+    });
+
+    //Click event to scroll to top
+    $('.toTop').click(function () {
+      $('html, body').animate({scrollTop: 0}, 800);
+      return false;
     });
   };
 

@@ -180,7 +180,7 @@ nav a {
   height: auto;
 }
 
-.logo-text{
+.logo-text {
   z-index: 5;
   margin-left: -10px;
   font-size: 70px;
@@ -293,4 +293,41 @@ footer a:hover {
 .tt {
   text-decoration: underline;
   cursor: pointer;
+}
+
+#how-it-works {
+  a {
+    color: #fff;
+    &:hover {
+      color: $color2 !important;
+    }
+    &:visited {
+      color: #fff;
+    }
+  }
+}
+
+.toTop {
+  background: rgba(0, 0, 0, 0.3);
+  height: 2em;
+  width: 5em;
+  border-radius: 8px;
+  padding: 5px;
+  text-align: center;
+  position: fixed;
+  bottom: 75px;
+  right: 15px;
+  color: #fff;
+  display: none;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $color5;
+    background: rgba(0, 0, 0, 0.8);
+  }
 }
