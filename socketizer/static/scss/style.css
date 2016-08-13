@@ -202,7 +202,7 @@ nav a {
   padding-bottom: auto;
 }
 
-#how-it-works {
+#how-it-works, #contact {
   min-height: 500px;
   background: #003049;
   color: #fff;
@@ -213,6 +213,7 @@ nav a {
 }
 
 footer {
+  padding-top: 20px;
   color: #003049;
 }
 
@@ -286,15 +287,16 @@ footer a:hover {
   cursor: pointer;
 }
 
-#how-it-works a {
+#how-it-works a, #contact a {
   color: #fff;
+  text-decoration: underline;
 }
 
-#how-it-works a:hover {
+#how-it-works a:hover, #contact a:hover {
   color: #d62828 !important;
 }
 
-#how-it-works a:visited {
+#how-it-works a:visited, #contact a:visited {
   color: #fff;
 }
 
@@ -323,4 +325,8 @@ footer a:hover {
   text-decoration: none;
   color: #eae2b7;
   background: rgba(0, 0, 0, 0.8);
+}
+
+.service-overview {
+  background-color: #F5F5F5;
 }

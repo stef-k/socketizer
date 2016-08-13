@@ -211,7 +211,7 @@ nav a {
   padding-bottom: auto;
 }
 
-#how-it-works {
+#how-it-works, #contact {
   min-height: 500px;
   background: $color1;
   color: #fff;
@@ -222,6 +222,7 @@ nav a {
 }
 
 footer {
+  padding-top: 20px ;
   color: $color1;
 }
 
@@ -295,9 +296,10 @@ footer a:hover {
   cursor: pointer;
 }
 
-#how-it-works {
+#how-it-works, #contact {
   a {
     color: #fff;
+    text-decoration: underline;
     &:hover {
       color: $color2 !important;
     }
@@ -330,4 +332,8 @@ footer a:hover {
     color: $color5;
     background: rgba(0, 0, 0, 0.8);
   }
+}
+
+.service-overview {
+  background-color: #F5F5F5;
 }
