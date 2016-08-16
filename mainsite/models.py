@@ -54,6 +54,14 @@ class Statistics(models.Model):
     max_concurrent_clients = models.IntegerField(default=0,
                                                  help_text='max concurrent '
                                                            'clients ever')
+    max_concurrent_domains = models.IntegerField(default=0,
+                                                 help_text='max_concurrent'
+                                                 'domains ever')
+
+    total_messages_broadcasted = models.BigIntegerField(default=0,
+                                                        help_text='total'
+                                                        'messaged broadcasted'
+                                                        'until today')
 
     class Meta:
         verbose_name_plural = 'statistics'
