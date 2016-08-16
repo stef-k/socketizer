@@ -64,8 +64,12 @@
                  </span>
                 Total clients served until now: <span
                     class="text-success">{{ stats.total_clients }} </span>
+                Total messages broacasted: <span
+                    class="text-success">{{ stats.total_messages_broadcasted }} </span>
                 Max concurrent clients ever: <span
                     class="text-success">{{ stats.max_concurrent_clients }} </span>
+                Max concurrent domains ever: <span
+                    class="text-success">{{ stats.max_concurrent_domains }} </span>
             </p>
             <p class="centered lead socketizer-w" id="poolInfo">
             </p>
@@ -151,7 +155,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 p-b-1">
-                    <img src="{% static 'img/service-overview.png' %}" class="img-fluid img-rounded service-overview" alt="service overview">
+                    <img src="{% static 'img/service-overview.png' %}"
+                         class="img-fluid img-rounded service-overview"
+                         alt="service overview">
                 </div>
             </div>
         </div>
@@ -263,10 +269,15 @@
                 <h2 class="centered  p-t-3">Contact</h2>
 
                 <div class="col-xs-12 lead centered">
-                    <p>We use <a href="https://github.com/stef-k/socketizer-wordpress/issues" target="_blank">GitHub.com</a>
+                    <p>We use <a
+                            href="https://github.com/stef-k/socketizer-wordpress/issues"
+                            target="_blank">GitHub.com</a>
                         for issues and questions and plugin's page on
-                        <a href="https://wordpress.org/plugins/socketizer/" target="_blank">WordPress.org</a> </p>
-                    <p>Additionally, you can contact us to <img src="{% static 'img/contact.svg' %}" alt="contact us"> </p>
+                        <a href="https://wordpress.org/plugins/socketizer/"
+                           target="_blank">WordPress.org</a></p>
+                    <p>Additionally, you can contact us to <img
+                            src="{% static 'img/contact.svg' %}"
+                            alt="contact us"></p>
                 </div>
             </div>
         </div>
