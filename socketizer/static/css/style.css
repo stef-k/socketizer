@@ -203,9 +203,16 @@ nav a {
 }
 
 #how-it-works, #contact {
-  min-height: 500px;
   background: #003049;
   color: #fff;
+}
+
+#how-it-works {
+  min-height: 500px;
+}
+
+#contact {
+  min-height: 230px;
 }
 
 #pricing {
